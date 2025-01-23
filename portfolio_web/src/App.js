@@ -1,10 +1,10 @@
 import React from "react";
-import SignupPage from "./components/SignUp";
+import CreateProjectPage from "./components/CreateProject";
 
 const App = () => {
   return (
     <div>
-      <SignupPage />
+      <CreateProjectPage/>
     </div>
   );
 };
