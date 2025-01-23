@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
-    background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+    background: linear-gradient(to bottom, #81c4c6, #6361a0);
   }
   
   .massive-custom-page {
@@ -27,7 +27,7 @@ body {
   
   .custom-header p {
     font-size: 1.2rem;
-    color: #555;
+    color: #ffffff;
   }
   
   .custom-card {
@@ -99,8 +99,8 @@ body {
   }
   
   .draft-btn {
-    background: #ffa502;
-    color: #fff;
+    background: #e99397;
+    color: #f0ecec;
   }
   
   .submit-btn {
