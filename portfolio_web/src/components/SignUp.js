@@ -4,9 +4,9 @@ import "./SignUp.css";
 const SignupPage = () => {
   const [formData, setFormData] = useState({
     fullName: "",
-    phoneNumber: "",
     email: "",
     country: "",
+    password: "",
   });
   const [isChecked, setIsChecked] = useState(false);
 
@@ -45,17 +45,6 @@ const SignupPage = () => {
           />
         </div>
         <div className="form-group">
-          <label>Phone Number</label>
-          <input
-            type="text"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
-            placeholder="Enter your phone number"
-            required
-          />
-        </div>
-        <div className="form-group">
           <label>Email</label>
           <input
             type="email"
@@ -78,6 +67,17 @@ const SignupPage = () => {
           />
         </div>
         <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <div className="form-group">
           <label>
             <input
               type="checkbox"
@@ -86,10 +86,7 @@ const SignupPage = () => {
               onChange={(e) => setIsChecked(e.target.checked)}
               required
             />
-            I accept the{" "}
-            <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer">
-              Terms and Conditions
-            </a>.
+            <h5>I agree to receiving a newsletter and updates.</h5>
           </label>
         </div>
         <button type="submit">Register</button>
