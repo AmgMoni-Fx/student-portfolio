@@ -1,43 +1,198 @@
-/* SignupPage.css */
-.container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input {
-    width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Section */
+.header {
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #ff7f50, #ffa500);
+  color: white;
+
+}
+
+.hero .intro {
+  margin-bottom: 20px;
+}
+
+.hero .highlight {
+  color: #ffd700;
+}
+
+.hero .btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.portfolio-btn {
+  background-color: #444;
+}
+
+.hire-btn {
+  background-color: #e07127;
+}
+
+/* Services Section */
+.services {
+  padding: 50px 20px;
+  color: #ffffff;
+  margin-top: -50px;
+  border-radius: 50px;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLjh4cT9PRB4z6XqxWcfpL_fnl88j5wSFU-g&s/image.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.services h2 {
+  text-align: center;
+}
+
+.service-cards {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 20px; /* Add space between cards */
+  padding: 10px;
+  scroll-snap-type: x mandatory; /* Enable snapping */
+}
+
+.card {
+  flex: 0 0 auto; /* Prevent shrinking/stretching */
+  background: white;
+  margin: 7px;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px; /* Set a fixed width */
+  text-align: center;
+  scroll-snap-align: center; /* Snap card to center */
+}
+
+.service-cards::-webkit-scrollbar {
+  height: 8px;
+}
+
+.service-cards::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.service-cards::-webkit-scrollbar-track {
+  background: #706868;
+}
+
+/* Profile Picture Section */
+.profile-picture-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.profile-picture-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-picture-label {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #f4f4f4;
+  border: 3px solid #ffa500;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.profile-picture-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #666;
+  height: 100%;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.profile-picture-label:hover {
+  border-color: #ff8500;
+}
+#project{
+  margin-left: 20px;
+}
+.create-project-box {
+  margin: 50px;
+  padding: 20px;
+  width: 400px;
+  height: 250px;
+  background-color: #f9f9f9;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.create-project-box h3 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #333;
+}
+.project-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.create-project-btn {
+  padding: 15px 30px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-project-btn:hover {
+  background-color: #3e8e41;
+}
