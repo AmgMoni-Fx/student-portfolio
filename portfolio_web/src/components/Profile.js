@@ -3,24 +3,35 @@ import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 
 const ProfilePage = () => {
-  const [profilePicture, setProfilePicture] = useState(null);
-  const navigate = useNavigate(); // Hook for navigation
+  const [profilePicture, setProfilePicture] = useState(null); // State for profile picture
+  const [bannerImage, setBannerImage] = useState(null); // State for banner image
+  const navigate = useNavigate();
 
-  // Handle file input and preview
+  // Handle profile picture upload
   const handleProfilePictureChange = (event) => {
     const file = event.target.files[0];
+    console.log(file); // Log file to ensure it's selected correctly
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        setProfilePicture(e.target.result);
+        console.log("Profile picture loaded:", e.target.result); // Log when file is loaded
+        setProfilePicture(e.target.result); // Set profile picture in state
       };
       reader.readAsDataURL(file);
     }
   };
 
-  // Handle "Create Project" button click
-  const handleCreateProjectClick = () => {
-    navigate("/create-project"); // Navigate to the Create Project page
+  // Handle banner image upload
+  const handleBannerChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        console.log("Banner image loaded:", e.target.result); // Log when file is loaded
+        setBannerImage(e.target.result); // Set banner image in state
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -32,50 +43,62 @@ const ProfilePage = () => {
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#projects">Project</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
       </header>
-
-      {/* Hero Section */}
-      <section className="hero">
+      {/* Hero Section with Banner Upload */}
+      <section
+        className="hero"
+        style={{
+          backgroundImage: bannerImage
+            ? `url(${bannerImage})`
+            : "linear-gradient(to bottom, #fcfcfc, #798bec)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "300px",
+          position: "relative",
+        }}
+        onClick={() => document.getElementById("banner-upload").click()} // Trigger file input when banner is clicked
+      >
+        {/* Hidden Banner Upload Input */}
+        <input
+          type="file"
+          accept="image/*"
+          id="banner-upload"
+          style={{ display: "none" }}
+          onChange={handleBannerChange} // Handle banner image change
+        />
         <div className="intro">
           <h1>
-            I'm <span className="highlight">Jenny</span>, <br />
-            Product Designer
+            UPLOAD <span className="highlight">BANNER</span> <br />
+            IMAGE
           </h1>
-          <p>
-            Jenny's exceptional product design ensures website success.
-            Highly Recommended.
-          </p>
+          </div>
+      </section>
 
-          {/* Profile Picture Section */}
-          <section id="profile-picture" className="profile-picture-section">
-            <div className="profile-picture-wrapper">
-              <label htmlFor="file-input" className="profile-picture-label">
-                {profilePicture ? (
-                  <img
-                    src={profilePicture}
-                    alt="Profile"
-                    className="profile-picture-preview"
-                  />
-                ) : (
-                  <div className="placeholder">Add Picture</div>
-                )}
-                <input
-                  id="file-input"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleProfilePictureChange}
-                  style={{ display: "none" }}
-                />
-              </label>
-            </div>
-          </section>
-
-          <button className="btn portfolio-btn">Portfolio</button>
-          <button className="btn hire-btn">Hire Me</button>
+      {/* Profile Picture Section */}
+      <section id="profile-picture" className="profile-picture-section">
+        <div className="profile-picture-wrapper">
+          <label htmlFor="profile-picture-upload" className="profile-picture-label">
+            {profilePicture ? (
+              <img
+                src={profilePicture}
+                alt="Profile"
+                className="profile-picture-preview"
+              />
+            ) : (
+              <div className="placeholder">Add Picture</div>
+            )}
+            <input
+              id="profile-picture-upload"
+              type="file"
+              accept="image/*"
+              onChange={handleProfilePictureChange} // Handle profile picture change
+              style={{ display: "none" }}
+            />
+          </label>
         </div>
       </section>
 
@@ -113,7 +136,7 @@ const ProfilePage = () => {
           />
           <button
             className="create-project-btn"
-            onClick={handleCreateProjectClick}
+            onClick={() => navigate('/create-project')} // Replace with your project creation navigation
           >
             Create Project
           </button>

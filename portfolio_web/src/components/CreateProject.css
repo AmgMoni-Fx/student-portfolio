@@ -1,125 +1,158 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Roboto", sans-serif;
-    background: linear-gradient(to bottom, #81c4c6, #6361a0);
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.create-project-page {
+  background: linear-gradient(to bottom, #81c4c6, #6361a0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.custom-header {
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.custom-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff6b6b;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.custom-header p {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.create-project-card {
+  background: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  transform: scale(1);
+  transition: transform 0.3s;
+}
+
+.create-project-card:hover {
+  transform: scale(1.02);
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.create-project-input,
+.create-project-textarea {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.create-project-input:focus,
+.create-project-textarea:focus {
+  border-color: #ff6b6b;
+}
+
+.create-project-textarea {
+  resize: none;
+  height: 120px;
+}
+
+.file-upload {
+  position: relative;
+}
+
+.file-label {
+  cursor: pointer;
+}
+
+.file-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  color: #888;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+  transition: all 0.3s;
+}
+
+.file-placeholder span {
+  flex: 1;
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.file-placeholder:hover {
+  background: #ffefef;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.create-project-action-btn {
+  padding: 15px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.create-project-draft-btn {
+  background: #e99397;
+  color: #f0ecec;
+}
+
+.create-project-submit-btn {
+  background: #2ed573;
+  color: #fff;
+}
+
+.create-project-action-btn:hover {
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .massive-custom-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .custom-header {
-    text-align: center;
-    color: #333;
-    margin-bottom: 40px;
-  }
-  
-  .custom-header h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #ff6b6b;
-    animation: fadeIn 2s ease-in-out;
-  }
-  
-  .custom-header p {
-    font-size: 1.2rem;
-    color: #ffffff;
-  }
-  
-  .custom-card {
-    background: #ffffff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    padding: 40px;
-    width: 100%;
-    max-width: 600px;
-    transform: scale(1);
-    transition: transform 0.3s;
-  }
-  
-  .custom-card:hover {
-    transform: scale(1.02);
-  }
-  
-  .form-section {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 10px;
-    display: block;
-  }
-  
-  input,
-  textarea {
-    width: 100%;
-    padding: 15px;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    outline: none;
-    transition: all 0.3s;
-  }
-  
-  input:focus,
-  textarea:focus {
-    border-color: #ff6b6b;
-  }
-  
-  textarea {
-    resize: none;
-    height: 120px;
-  }
-  
-  .file-upload input {
-    border: none;
-    background: #f9f9f9;
-    font-size: 0.95rem;
-  }
-  
-  .button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .action-btn {
-    padding: 15px 25px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .draft-btn {
-    background: #e99397;
-    color: #f0ecec;
-  }
-  
-  .submit-btn {
-    background: #2ed573;
-    color: #fff;
-  }
-  
-  .action-btn:hover {
-    opacity: 0.9;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}
