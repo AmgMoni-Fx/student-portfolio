@@ -1,0 +1,110 @@
+.profile-settings-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .profile-settings-container.dark-mode {
+    background: #222;
+    color: white;
+  }
+  
+  .profile-pic-section {
+    margin-bottom: 15px;
+  }
+  
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+  }
+  
+  .remove-btn {
+    margin-top: 10px;
+    background: #ff4d4d;
+    color: white;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .profile-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .profile-fields input,
+  .profile-fields textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .save-btn {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .delete-btn {
+    background: #ff4d4d;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .theme-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .theme-switch input {
+    display: none;
+  }
+  
+  .theme-switch .slider {
+    width: 40px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 20px;
+    position: relative;
+    transition: 0.3s;
+  }
+  
+  .theme-switch .slider:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 2px;
+    top: 1px;
+    transition: 0.3s;
+  }
+  
+  .theme-switch input:checked + .slider {
+    background: #007bff;
+  }
+  
+  .theme-switch input:checked + .slider:before {
+    left: 20px;
+  }
+  
