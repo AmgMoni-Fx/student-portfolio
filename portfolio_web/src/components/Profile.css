@@ -17,17 +17,13 @@
 
 /* Banner Section */
 .banner {
-  background-color: #dc1f1f;
+  background-color: #333;
   color: white;
   text-align: center;
   padding: 20px;
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 30px;
-}
-
-.banner:hover {
-  background-color: #555; /* Change this to any color you want */
 }
 
 .banner .banner-message {
@@ -45,20 +41,21 @@
   padding: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  position: absolute; /* Position it absolutely */
-  top: 70%; /* Position at the top */
-  left: 95%;
-  transform: translateX(-50%); /* Ensure it's centered */
+  margin-top: -50px; /* Adjust to move it outside the circle */
+  margin-left: auto;
+  margin: right 50%;
+  display: block;
 }
 
 .edit-profile-btn:hover {
   background-color: rgba(0, 0, 0, 0.7);
-  transform: translateX(-50%) scale(1.1); /* Center and scale up */
+  transform: scale(1.1);
 }
 
 .edit-profile-btn svg {
   font-size: 18px; /* Adjust icon size if needed */
 }
+
 
 
 /* Hero Section */
@@ -91,16 +88,13 @@
   margin-top: -80px;
   color: #ffffff;
   border-radius: 50px;
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmRSlPkG2QXQtSwmjH2XziD40Rg9tc7suQRQ&s');
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLjh4cT9PRB4z6XqxWcfpL_fnl88j5wSFU-g&s/image.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .services h2 {
   text-align: center;
-  color: #f4f4f4;
-  font-size: 50px;
-  font-weight: bold;
 }
 
 .service-cards {

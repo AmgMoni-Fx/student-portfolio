@@ -31,7 +31,7 @@ const ProfilePage = () => {
 
   // Handle profile editing redirection
   const handleEditProfileClick = () => {
-    navigate("/ProfileEdit"); // Redirect to the profile settings page
+    navigate("/profile-settings"); // Redirect to the profile settings page
   };
 
   return (
@@ -133,7 +133,7 @@ const ProfilePage = () => {
         <h2>Projects</h2>
         <div className="create-project-box">
           <img
-            src="/add logo.png"
+            src="/addLogo.png"
             alt="Add Project Logo"
             className="project-logo"
           />
