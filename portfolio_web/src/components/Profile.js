@@ -31,7 +31,7 @@ const ProfilePage = () => {
 
   // Handle profile editing redirection
   const handleEditProfileClick = () => {
-    navigate("/profile-settings"); // Redirect to the profile settings page
+    navigate("/ProfileEdit"); // Redirect to the profile settings page
   };
 
   return (
@@ -55,7 +55,7 @@ const ProfilePage = () => {
         style={{
           backgroundImage: bannerImage
             ? `url(${bannerImage})`
-            : "linear-gradient(to bottom, #fcfcfc, #798bec)",
+            : "linear-gradient(to bottom, #cce7ff , #0056b3)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "300px",
@@ -133,7 +133,7 @@ const ProfilePage = () => {
         <h2>Projects</h2>
         <div className="create-project-box">
           <img
-            src="/addLogo.png"
+            src="/add logo.png"
             alt="Add Project Logo"
             className="project-logo"
           />

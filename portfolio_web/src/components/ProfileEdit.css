@@ -4,7 +4,7 @@
   margin: 0 auto;
   padding: 30px;
   font-family: Arial, sans-serif;
-  background-color:rgb(217, 217, 247); /* Changed to white for a clean look */
+  background-color:rgb(223, 223, 248); /* Changed to white for a clean look */
   border-radius: 10px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); /* Added shadow for more depth */
 }
@@ -27,7 +27,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:rgb(26, 26, 83)
+  background-color: rgb(10, 10, 46);
 }
 
 .profile-pic-label {
@@ -87,7 +87,7 @@ form {
 
 .input-group input:focus,
 .input-group textarea:focus {
-  border-color: #9cbfe5;
+  border-color: #007bff;
   background-color: #fff;
 }
 
@@ -123,7 +123,7 @@ form {
 .skills button,
 .experience button {
   margin-top: 10px;
-  background-color: #9cbfe5;
+  background-color: #007bff;
   color: white;
   padding: 8px;
   border: none;
@@ -133,7 +133,7 @@ form {
 
 .skills button:hover,
 .experience button:hover {
-  background-color:#9cbfe5;
+  background-color: #0056b3;
 }
 
 /* Social Links Section */
@@ -157,7 +157,7 @@ form {
 }
 
 .buttons button {
-  background-color: #9cbfe5;
+  background-color: #007bff;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -166,11 +166,11 @@ form {
 }
 
 .buttons button:hover {
-  background-color: #9cbfe5;
+  background-color: #0056b3;
 }
 
 .buttons button[type="button"] {
-  background-color: #ed9c96;
+  background-color: #f44336;
 }
 
 .buttons button[type="button"]:hover {

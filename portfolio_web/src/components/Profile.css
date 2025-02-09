@@ -41,15 +41,15 @@
   padding: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-top: -50px; /* Adjust to move it outside the circle */
-  margin-left: auto;
-  margin: right 50%;
-  display: block;
+  position: absolute; /* Position it absolutely */
+  top: 70%; /* Position at the top */
+  left: 90%; /* Center horizontally */
+  transform: translateX(-50%); /* Ensure it's centered */
 }
 
 .edit-profile-btn:hover {
   background-color: rgba(0, 0, 0, 0.7);
-  transform: scale(1.1);
+  transform: translateX(-50%) scale(1.1); /* Center and scale up */
 }
 
 .edit-profile-btn svg {
@@ -88,7 +88,7 @@
   margin-top: -80px;
   color: #ffffff;
   border-radius: 50px;
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLjh4cT9PRB4z6XqxWcfpL_fnl88j5wSFU-g&s/image.jpg');
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmRSlPkG2QXQtSwmjH2XziD40Rg9tc7suQRQ&s');
   background-size: cover;
   background-position: center;
 }
