@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Importing for potential redirect
 import "./CreateProject.css";
 
 const CreateProjectPage = () => {
@@ -8,6 +9,8 @@ const CreateProjectPage = () => {
     video: null,
     image: null,
   });
+  const [error, setError] = useState(""); // State for error messages
+  const navigate = useNavigate(); // For navigation
 
   useEffect(() => {
     const savedDraft = localStorage.getItem("draftProject");
@@ -23,7 +26,21 @@ const CreateProjectPage = () => {
 
   const handleFileChange = (e) => {
     const { name, files } = e.target;
-    setProjectData((prev) => ({ ...prev, [name]: files[0] }));
+    const file = files[0];
+
+    // File validation
+    if (name === "video" && file && file.type !== "video/mp4") {
+      setError("Only MP4 videos are allowed.");
+      return;
+    }
+
+    if (name === "image" && file && file.size > 5 * 1024 * 1024) { // 5MB limit
+      setError("Image size should not exceed 5MB.");
+      return;
+    }
+
+    setError(""); // Clear error if file is valid
+    setProjectData((prev) => ({ ...prev, [name]: file }));
   };
 
   const handleDraft = () => {
@@ -33,7 +50,24 @@ const CreateProjectPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Form validation before submission
+    if (!projectData.title || !projectData.description || !projectData.video || !projectData.image) {
+      setError("All fields are required!");
+      return;
+    }
+
+    // Save the new project to localStorage
+    const savedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
+    savedProjects.push(projectData);
+    localStorage.setItem("projects", JSON.stringify(savedProjects));
+
+    // Reset form and redirect on successful submission
     alert("Project submitted successfully!");
+    setProjectData({ title: "", description: "", video: null, image: null }); // Clear form
+    localStorage.removeItem("draftProject"); // Clear draft
+
+    navigate("/profile"); // Redirect to profile page where the new project will appear
   };
 
   return (
@@ -110,6 +144,7 @@ const CreateProjectPage = () => {
               />
             </label>
           </div>
+          {error && <div className="error-message">{error}</div>} {/* Show error message */}
           <div className="button-group">
             <button
               type="button"

@@ -6,6 +6,7 @@ import "./Profile.css";
 const ProfilePage = () => {
   const [profilePicture, setProfilePicture] = useState(null); // State for profile picture
   const [bannerImage, setBannerImage] = useState(null); // State for banner image
+  const [projects, setProjects] = useState([]); // State to store the list of projects
   const navigate = useNavigate();
 
   // UseEffect to load saved profile picture from local storage or other source
@@ -14,6 +15,9 @@ const ProfilePage = () => {
     if (savedProfilePicture) {
       setProfilePicture(savedProfilePicture); // Load saved profile picture from local storage
     }
+
+    const savedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
+    setProjects(savedProjects); // Load saved projects from local storage
   }, []);
 
   // Handle banner image upload
@@ -113,18 +117,16 @@ const ProfilePage = () => {
           vision becomes a reality.
         </p>
         <div className="service-cards">
-          <div className="card">
-            <h3>UI/UX Design</h3>
-            <p>Designing intuitive user interfaces for better experiences.</p>
-          </div>
-          <div className="card">
-            <h3>Web Design</h3>
-            <p>Crafting responsive websites tailored to your needs.</p>
-          </div>
-          <div className="card">
-            <h3>Landing Page</h3>
-            <p>Building impactful landing pages that convert visitors.</p>
-          </div>
+          {projects.length > 0 ? (
+            projects.map((project, index) => (
+              <div className="card" key={index}>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </div>
+            ))
+          ) : (
+            <p>No projects added yet. Create one now!</p>
+          )}
         </div>
       </section>
 
@@ -139,7 +141,7 @@ const ProfilePage = () => {
           />
           <button
             className="create-project-btn"
-            onClick={() => navigate('/create-project')} // Replace with your project creation navigation
+            onClick={() => navigate('/create-project')} // Navigate to the Create Project page
           >
             Create Project
           </button>
