@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaPen } from "react-icons/fa"; // Import pencil icon
 import "./Profile.css";
 
 const ProfilePage = () => {
@@ -7,19 +8,13 @@ const ProfilePage = () => {
   const [bannerImage, setBannerImage] = useState(null); // State for banner image
   const navigate = useNavigate();
 
-  // Handle profile picture upload
-  const handleProfilePictureChange = (event) => {
-    const file = event.target.files[0];
-    console.log(file); // Log file to ensure it's selected correctly
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        console.log("Profile picture loaded:", e.target.result); // Log when file is loaded
-        setProfilePicture(e.target.result); // Set profile picture in state
-      };
-      reader.readAsDataURL(file);
+  // UseEffect to load saved profile picture from local storage or other source
+  useEffect(() => {
+    const savedProfilePicture = localStorage.getItem("profilePicture");
+    if (savedProfilePicture) {
+      setProfilePicture(savedProfilePicture); // Load saved profile picture from local storage
     }
-  };
+  }, []);
 
   // Handle banner image upload
   const handleBannerChange = (event) => {
@@ -32,6 +27,11 @@ const ProfilePage = () => {
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  // Handle profile editing redirection
+  const handleEditProfileClick = () => {
+    navigate("/ProfileEdit"); // Redirect to the profile settings page
   };
 
   return (
@@ -48,6 +48,7 @@ const ProfilePage = () => {
           </ul>
         </nav>
       </header>
+      
       {/* Hero Section with Banner Upload */}
       <section
         className="hero"
@@ -75,13 +76,13 @@ const ProfilePage = () => {
             UPLOAD <span className="highlight">BANNER</span> <br />
             IMAGE
           </h1>
-          </div>
+        </div>
       </section>
 
       {/* Profile Picture Section */}
       <section id="profile-picture" className="profile-picture-section">
         <div className="profile-picture-wrapper">
-          <label htmlFor="profile-picture-upload" className="profile-picture-label">
+          <div className="profile-picture-label">
             {profilePicture ? (
               <img
                 src={profilePicture}
@@ -89,16 +90,18 @@ const ProfilePage = () => {
                 className="profile-picture-preview"
               />
             ) : (
-              <div className="placeholder">Add Picture</div>
+              <div className="placeholder">No Profile Picture</div>
             )}
-            <input
-              id="profile-picture-upload"
-              type="file"
-              accept="image/*"
-              onChange={handleProfilePictureChange} // Handle profile picture change
-              style={{ display: "none" }}
-            />
-          </label>
+          </div>
+
+          {/* Pencil Icon Button for Editing Profile */}
+          <button
+            className="edit-profile-btn"
+            onClick={handleEditProfileClick}
+            title="Edit Profile"
+          >
+            <FaPen /> {/* Pencil Icon */}
+          </button>
         </div>
       </section>
 
@@ -130,7 +133,7 @@ const ProfilePage = () => {
         <h2>Projects</h2>
         <div className="create-project-box">
           <img
-            src="/addLogo.png"
+            src="/add logo.png"
             alt="Add Project Logo"
             className="project-logo"
           />
