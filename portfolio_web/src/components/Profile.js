@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaPen } from "react-icons/fa"; // Import pencil icon
+import Footer from "../components/Footer"; // Import Footer component
 import "./Profile.css";
 
 const ProfilePage = () => {
@@ -44,15 +45,24 @@ const ProfilePage = () => {
       <header className="header">
         <nav className="navbar">
           <ul className="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#services">Services</a>
+            </li>
+            <li>
+              <a href="#projects">Projects</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
           </ul>
         </nav>
       </header>
-      
       {/* Hero Section with Banner Upload */}
       <section
         className="hero"
@@ -82,7 +92,6 @@ const ProfilePage = () => {
           </h1>
         </div>
       </section>
-
       {/* Profile Picture Section */}
       <section id="profile-picture" className="profile-picture-section">
         <div className="profile-picture-wrapper">
@@ -108,7 +117,6 @@ const ProfilePage = () => {
           </button>
         </div>
       </section>
-
       {/* Services Section */}
       <section id="services" className="services">
         <h2>My Services</h2>
@@ -129,7 +137,6 @@ const ProfilePage = () => {
           )}
         </div>
       </section>
-
       {/* Projects Section */}
       <section id="projects">
         <h2>Projects</h2>
@@ -141,12 +148,14 @@ const ProfilePage = () => {
           />
           <button
             className="create-project-btn"
-            onClick={() => navigate('/create-project')} // Navigate to the Create Project page
+            onClick={() => navigate("/create-project")} // Navigate to the Create Project page
           >
             Create Project
           </button>
         </div>
       </section>
+      {/* Footer */}
+      <Footer /> {/* Adding the Footer here */}
     </div>
   );
 };
